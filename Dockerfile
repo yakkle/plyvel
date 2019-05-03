@@ -1,7 +1,6 @@
-FROM quay.io/pypa/manylinux1_x86_64
+FROM quay.io/pypa/manylinux2010_x86_64
 
-# Use CMake < 3.14.x b/c https://gitlab.kitware.com/cmake/cmake/issues/19086
-ENV CMAKE_VERSION=3.13.4
+ENV CMAKE_VERSION=3.14.3
 
 RUN true \
     && mkdir /opt/cmake \

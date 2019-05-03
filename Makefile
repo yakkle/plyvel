@@ -31,7 +31,7 @@ docker-build-env:
 	docker build -t plyvel-build .
 
 release: docker-build-env
-	CIBW_BUILD='*-manylinux1_x86_64' \
+	CIBW_BUILD='*-manylinux2010_x86_64' \
 	CIBW_MANYLINUX1_X86_64_IMAGE=plyvel-build \
 	CIBW_BEFORE_BUILD=scripts/cibuildwheel-before-build.sh \
 	CIBW_PLATFORM=linux \
