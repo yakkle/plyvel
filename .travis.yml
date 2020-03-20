@@ -9,21 +9,42 @@ branches:
 services:
   - docker
 
+os:
+  - linux
+  - osx
+
 python:
   - "3.7"
-  - "3.6"
-  - "3.5"
-  - "3.4"
-  - "2.7"
+#  - "3.6"
+#  - "3.5"
+#  - "3.4"
+#  - "2.7"
 
-before_install:
-  - scripts/install-snappy.sh
-  - scripts/install-leveldb.sh
+jobs:
+  include:
+    - stage: "tests"
+      name: "tests"
+      install:
+        - pip install -r requirements-dev.txt
+      script:
+        - echo "test"
+    - stage: deploy
+      name: "deploy"
+      script:
+        - echo "deploy"
 
-install:
-  - pip install -r requirements-dev.txt
-  - make cython
-  - pip install .
 
-script:
-  - make test
+#before_install:
+#  - scripts/install-snappy.sh
+#  - scripts/install-leveldb.sh
+#
+#install:
+#  - pip install -r requirements-dev.txt
+#  - make cython
+#  - pip install .
+#  - python3 -m pip install cibuildwheel==1.0.0
+#
+#script:
+#  - make test
+#  # build the wheels, put them into './wheelhouse'
+#  - python3 -m cibuildwheel --output-dir wheelhouse
