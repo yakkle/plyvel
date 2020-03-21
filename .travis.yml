@@ -23,7 +23,7 @@ python:
 jobs:
   include:
     - stage: "tests"
-      name: "tests"
+      name: "stage tests"
       install:
         - pip install -r requirements-dev.txt
       script:
@@ -33,6 +33,11 @@ jobs:
       script:
         - echo "deploy"
 
+install:
+  - echo "install!"
+
+script:
+  - echo "test!"
 
 #before_install:
 #  - scripts/install-snappy.sh
