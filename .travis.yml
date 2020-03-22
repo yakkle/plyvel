@@ -22,7 +22,7 @@ python:
 
 jobs:
   include:
-    - stage: test
+    - stage: tests
       name: "stage tests"
       script:
         - echo "test"
