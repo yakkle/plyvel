@@ -46,7 +46,7 @@ install:
 
 script:
   - which python3
-  - echo "test!"
+  - echo "test"
 
 #before_install:
 #  - scripts/install-snappy.sh
