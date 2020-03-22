@@ -1,4 +1,4 @@
-dist: xenial
+# dist: xenial
 
 language: python
 
@@ -24,8 +24,6 @@ jobs:
   include:
     - stage: "tests"
       name: "stage tests"
-      install:
-        - pip install -r requirements-dev.txt
       script:
         - echo "test"
     - stage: deploy
@@ -36,8 +34,8 @@ jobs:
 install:
   - echo "install!"
 
-script:
-  - echo "test!"
+#script:
+#  - echo "test!"
 
 #before_install:
 #  - scripts/install-snappy.sh
