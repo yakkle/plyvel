@@ -1,6 +1,6 @@
 # dist: xenial
 
-language: python
+# language: python
 
 branches:
   only:
@@ -13,8 +13,8 @@ os:
   - linux
   - osx
 
-python:
-  - "3.7"
+#python:
+#  - "3.7"
 #  - "3.6"
 #  - "3.5"
 #  - "3.4"
@@ -29,6 +29,7 @@ jobs:
   include:
     - os: linux
       dist: xenial
+      language: python
       python: 3.7
     - os: osx
       language: shell
