@@ -22,18 +22,20 @@ python:
 
 jobs:
   include:
-    - stage: "tests"
+    - stage: test
       name: "stage tests"
+      install:
+        - echo "install!"
       script:
         - echo "test"
     - stage: deploy
-      name: "deploy"
+      name: "stage deploy"
       script:
         - echo "deploy"
 
-install:
-  - echo "install!"
-
+#install:
+#  - echo "install!"
+#
 #script:
 #  - echo "test!"
 
