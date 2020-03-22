@@ -37,23 +37,24 @@ jobs:
       name : "stage build"
       script:
         - echo "build"
-    - stage: test
-      name: "stage tests"
-      install:
-        - echo "install"
-      script:
-        - python -V
-        - echo "test"
+#    - stage: test
+#      name: "stage tests"
+#      install:
+#        - echo "install"
+#      script:
+#        - python -V
+#        - echo "test"
     - stage: deploy
       name: "stage deploy"
       script:
         - echo "deploy"
 
-#install:
-#  - echo "install"
-#
-#script:
-#  - echo "test!"
+install:
+  - echo "install"
+
+script:
+  - python -V
+  - echo "test!"
 
 #before_install:
 #  - scripts/install-snappy.sh
