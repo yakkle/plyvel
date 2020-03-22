@@ -20,8 +20,23 @@ python:
 #  - "3.4"
 #  - "2.7"
 
+stages:
+  - build
+  - test
+  - deploy
+
 jobs:
   include:
+    - os: linux
+      dist: xenial
+    - os: osx
+      language: shell
+      python: 3.7
+    - stage: build
+      name : "stage build"
+      script:
+        - python -V
+        - echo "build"
     - stage: test
       name: "stage tests"
       install:
