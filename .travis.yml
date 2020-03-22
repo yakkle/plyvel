@@ -6,8 +6,8 @@ branches:
   only:
   - master
 
-services:
-  - docker
+#services:
+#  - docker
 
 os:
   - linux
@@ -29,19 +29,20 @@ jobs:
   include:
     - os: linux
       dist: xenial
+      services: docker
     - os: osx
       language: shell
       python: 3.7
     - stage: build
       name : "stage build"
       script:
-        - python -V
         - echo "build"
     - stage: test
       name: "stage tests"
       install:
         - echo "install"
       script:
+        - python -V
         - echo "test"
     - stage: deploy
       name: "stage deploy"
