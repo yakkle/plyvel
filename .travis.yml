@@ -33,8 +33,6 @@ jobs:
     - os: osx
       language: shell
       python: 3.7
-      script:
-        - python3 -V
     - stage: build
       name : "stage build"
       script:
@@ -44,7 +42,6 @@ jobs:
 #      install:
 #        - echo "install"
 #      script:
-#        - python -V
 #        - echo "test"
     - stage: deploy
       name: "stage deploy"
