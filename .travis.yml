@@ -1,4 +1,4 @@
-dist: xenial
+# dist: xenial
 
 language: python
 
@@ -6,24 +6,59 @@ branches:
   only:
   - master
 
-services:
-  - docker
+#services:
+#  - docker
 
-python:
-  - "3.7"
-  - "3.6"
-  - "3.5"
-  - "3.4"
-  - "2.7"
+#os:
+#  - linux
+#  - osx
 
-before_install:
-  - scripts/install-snappy.sh
-  - scripts/install-leveldb.sh
+#python:
+#  - "3.7"
+#  - "3.6"
+#  - "3.5"
+#  - "3.4"
+#  - "2.7"
+
+stages:
+  - build
+  - test
+  - deploy
+
+jobs:
+  include:
+    - os: linux
+      dist: xenial
+      python: 3.7
+    - os: osx
+      language: shell
+    - stage: build
+      name : "stage build"
+      script:
+        - echo "build"
+    - stage: deploy
+      name: "stage deploy"
+      script:
+        - echo "deploy"
 
 install:
-  - pip install -r requirements-dev.txt
-  - make cython
-  - pip install .
+  - echo "install"
 
 script:
-  - make test
+  - which python3
+  - echo "test"
+
+#before_install:
+#  - scripts/install-snappy.sh
+#  - scripts/install-leveldb.sh
+#
+#install:
+#  - pip install -r requirements-dev.txt
+#  - make cython
+#  - pip install .
+#  - python3 -m pip install cibuildwheel==1.0.0
+#
+#script:
+#  - make test
+#  # build the wheels, put them into './wheelhouse'
+#  - python3 -m cibuildwheel --output-dir wheelhouse
