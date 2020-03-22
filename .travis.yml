@@ -24,8 +24,6 @@ jobs:
   include:
     - stage: test
       name: "stage tests"
-      install:
-        - echo "install!"
       script:
         - echo "test"
     - stage: deploy
@@ -33,11 +31,11 @@ jobs:
       script:
         - echo "deploy"
 
-#install:
-#  - echo "install!"
-#
-#script:
-#  - echo "test!"
+install:
+  - echo "install!"
+
+script:
+  - echo "test!"
 
 #before_install:
 #  - scripts/install-snappy.sh
