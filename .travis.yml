@@ -32,17 +32,10 @@ jobs:
       python: 3.7
     - os: osx
       language: shell
-      python: 3.7
     - stage: build
       name : "stage build"
       script:
         - echo "build"
-#    - stage: test
-#      name: "stage tests"
-#      install:
-#        - echo "install"
-#      script:
-#        - echo "test"
     - stage: deploy
       name: "stage deploy"
       script:
